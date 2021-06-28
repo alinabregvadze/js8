@@ -1,14 +1,12 @@
 function getData() {
-    return fetch('https://ucha.ge/todo/server.php', {
-        method: 'POST',
-    }).then(function(r) {
+    fetch('https://ucha.ge/todo/server.php').then(function(r) {
         return r.json();
+    }).then(function(r) {
+        console.log(r);
+        // renderListItems(r)
     })
 }
-getData().then(function(r) {
-    console.log(r);
-    // renderListItems(r);
-});
+getData();
 
 function sendData(text) {
     fetch('https://ucha.ge/todo/server.php', {
